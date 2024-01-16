@@ -1,0 +1,41 @@
+/*
+  Специально для тёмной темы при наличии класса,
+  здесь окажутся стили, которые нужно переопределить принудительно,
+  переключая тему
+*/
+
+.page.theme_dark {
+  /* сохраните этот селектор в приведённом виде.
+    Так стили написанные ниже будут иметь больший вес,
+    чем стили в медиазапросе предпочтений пользователя
+  */
+  --bg-color: #000028;
+  --text-color: #f1b2ce;
+  --accent-color: #ff0070;
+  --accented-text-color: #000028;
+}
+
+.page.theme_dark .decorated-zone {
+  background-image: url(../images/cover-image-dark.png);
+}
+
+.page.theme_dark .main__section > .main__heading {
+  color: var(--accent-color);
+}
+
+.page.theme_dark .header__heading {
+  color: #db00ff;
+  text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+.page.theme_dark .header__theme-menu {
+  color: var(--accent-color);
+}
+
+.page.theme_dark .header__theme-menu-button_type_dark {
+  border: 1px solid var(--accent-color);
+}
+
+.page.theme_dark .header__theme-menu-button_type_light {
+  border: none;
+}

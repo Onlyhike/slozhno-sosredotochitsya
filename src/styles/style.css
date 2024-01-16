@@ -1,0 +1,95 @@
+/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+
+.page {
+  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  --bg-color: #fff1f7;
+  --text-color: #353430;
+  --accent-color: #ff8dcb;
+  --accented-text-color: #353430;
+  padding: 10px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "IBM Plex mono", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 130%;
+
+  container-type: inline-size;
+}
+
+@container (width >= 365px) {
+
+  .header {
+    min-block-size: 1024px;
+  }
+}
+
+.accented-text {
+  background-color: var(--accent-color);
+  color: var(--accented-text-color);
+  font-weight: 700;
+}
+
+.header__theme-menu-button {
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  line-height: 100%;
+  text-transform: lowercase;
+}
+
+.header__theme-menu-button_type_light {
+  border: 1px solid var(--text-color);
+}
+
+.decorated-zone {
+  background-image: url(../images/cover-image-light.png);
+  padding-block-end: 55px;
+}
+
+.decorated-zone::before {
+  display: block;
+  margin-inline-start: auto;
+  content: '';
+  block-size: 25px;
+  inline-size: 25px;
+  border-inline-end: 1px solid var(--text-color);
+  border-block-start: 1px solid var(--text-color);
+}
+
+.decorated-zone::after {
+  display: block;
+  margin-inline-end: auto;
+  content: '';
+  block-size: 25px;
+  inline-size: 25px;
+  border-inline-start: 1px solid var(--text-color);
+  border-block-end: 1px solid var(--text-color);
+  margin-block-start: 31px;
+}
+
+.header__theme-menu-list {
+  width: fit-content;
+  margin-inline-start: auto;
+  padding-block-start: 40px;
+}
+
+.header__heading {
+  font-size: 116px;
+  line-height: 82.5%;
+  padding-block-end: 55px;
+  color: #ffc2e6;
+  text-shadow: 4px 4px 0 #ff8dcb;
+}
+
+.main__heading {
+  font-size: 18px;
+}
+
+.main__section {
+  padding-top: 50px;
+}
+
+.main__heading:not(.main__section > .main__heading) {
+  margin: 20px 0 10px;
+}
