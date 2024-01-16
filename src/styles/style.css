@@ -9,19 +9,10 @@
   padding: 10px;
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: "IBM Plex mono", sans-serif;
+  font-family: 'IBM Plex mono', sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 130%;
-
-  container-type: inline-size;
-}
-
-@container (width >= 365px) {
-
-  .header {
-    min-block-size: 1024px;
-  }
 }
 
 .accented-text {
