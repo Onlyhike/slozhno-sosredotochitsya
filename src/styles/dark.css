@@ -9,33 +9,96 @@
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
   */
-  --bg-color: #000028;
   --text-color: #f1b2ce;
   --accent-color: #ff0070;
-  --accented-text-color: #000028;
+  --background-image: url(../images/cover-image-dark.png);
 }
 
-.page.theme_dark .decorated-zone {
-  background-image: url(../images/cover-image-dark.png);
+@media (prefers-color-scheme: dark) {
+
+  .page.theme_auto {
+    --text-color: #f1b2ce;
+    --accent-color: #ff0070;
+    --background-image: url(../images/cover-image-dark.png);
+  }
+
+  .page.theme_auto .title-decorated {
+    --text-color: #000028;
+  }
+
+  .page.theme_auto .header__theme-menu-button {
+    color: var(--accent-color);
+  }
+
+  .page.theme_auto .header::before,
+  .page.theme_auto .header::after {
+    --text-color: #ff0070;
+  }
+
+  .page.theme_auto .header__heading {
+    --text-color: #db00ff;
+  }
+
+  .page.theme_auto .accent-colored-heading {
+    color: var(--accent-color);
+  }
+
+  .page.theme_auto .header__theme-menu-button_type_auto {
+    border: 1px solid var(--accent-color);
+  }
+
+  .page.theme_auto .rec-elem {
+    visibility: visible;
+  }
 }
 
-.page.theme_dark .main__section > .main__heading {
+.page.theme_dark .main__section > .main__section-heading {
   color: var(--accent-color);
-}
-
-.page.theme_dark .header__heading {
-  color: #db00ff;
-  text-shadow: 4px 4px 0 var(--accent-color);
 }
 
 .page.theme_dark .header__theme-menu {
   color: var(--accent-color);
 }
 
+.page.theme_dark .header__theme-menu-button {
+  --text-color: var(--accent-color);
+}
+
 .page.theme_dark .header__theme-menu-button_type_dark {
   border: 1px solid var(--accent-color);
 }
 
-.page.theme_dark .header__theme-menu-button_type_light {
-  border: none;
+.page.theme_dark .rec-elem {
+  visibility: visible;
+}
+
+.page.theme_dark .header::before,
+.page.theme_dark .header::after,
+.page.theme_dark .footer::before,
+.page.theme_dark .footer::after {
+  --text-color: #ff0070;
+}
+
+.page.theme_dark .header__theme-menu-button:hover {
+  --hovered-color: #ff007050;
+}
+
+.page.theme_dark .header__heading {
+  --text-color: #db00ff;
+}
+
+.page.theme_dark .accent-colored-heading {
+  color: var(--accent-color);
+}
+
+.page.theme_dark .title-decorated {
+  --text-color: #000028;
+}
+
+.page.theme_dark .footer__heading {
+  --text-color: #db00ff;
+}
+
+.page.theme_auto .footer__heading {
+  --text-color: #db00ff;
 }
