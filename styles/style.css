@@ -2,6 +2,7 @@
 
 .page {
   padding: 0 10px;
+  margin: 0 auto;
   background-image: var(--background-image);
   background-size: cover;
   background-repeat: no-repeat;
@@ -84,13 +85,14 @@
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 2fr;
   grid-template-rows: 1fr 3fr 3fr 3fr 1fr;
-  min-block-size: 100vh;
+  max-block-size: 100vh;
   padding: 10px 0;
 }
 
-@media (width >= 768px) {
+@media (1024px > width >= 768px) {
 
   .header {
+    min-block-size: 100vh;
     padding: 20px 0;
   }
 }
@@ -99,6 +101,7 @@
 
   .header {
     max-block-size: 768px;
+    padding: 20px 0;
   }
 }
 
@@ -181,7 +184,7 @@
 .header__theme-menu-list {
   display: flex;
   flex-direction: column;
-  gap: 11px;
+  gap: 12px;
 }
 
 @media (width >=1024px) {
@@ -413,15 +416,14 @@
 
   .footer {
     padding: 0 0 20px;
-    block-size: calc(100vh - 20px);
+    min-block-size: calc(100vh - 20px);
   }
 }
 
 @media (width >= 1024px) {
 
   .footer {
-    max-block-size: 768px;
-    padding: 0 0 40px;
+    min-block-size: 748px;
   }
 }
 

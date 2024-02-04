@@ -18,33 +18,33 @@ function html() {
     sortClassName: true,
     useShortDoctype: true,
     collapseWhitespace: true,
-      minifyCSS: true,
-      keepClosingSlash: true
+    minifyCSS: true,
+    keepClosingSlash: true,
   };
-return gulp.src('src/**/*.html')
-      .pipe(plumber())
-              .on('data', function(file) {
-            const buferFile = Buffer.from(htmlMinify.minify(file.contents.toString(), options))
-            return file.contents = buferFile
-          })
-              .pipe(gulp.dest('dist/'))
-      .pipe(browserSync.reload({stream: true}));
+  return gulp
+    .src('src/**/*.html')
+    .pipe(plumber())
+    .on('data', function (file) {
+      const buferFile = Buffer.from(
+        htmlMinify.minify(file.contents.toString(), options)
+      );
+      return (file.contents = buferFile);
+    })
+    .pipe(gulp.dest('dist/'))
+    .pipe(browserSync.reload({ stream: true }));
 }
 
 exports.html = html;
 
 function css() {
-  const plugins = [
-    autoprefixer(),
-    mediaquery(),
-    cssnano()
-  ]
-return gulp.src('src/**/*.css')
-      .pipe(plumber())
-      .pipe(concat('bundle.css'))
-      .pipe(postcss(plugins))
-      .pipe(gulp.dest('dist/'))
-      .pipe(browserSync.reload({stream: true}));
+  const plugins = [autoprefixer(), mediaquery(), cssnano()];
+  return gulp
+    .src('src/**/*.css')
+    .pipe(plumber())
+    .pipe(concat('bundle.css'))
+    .pipe(postcss(plugins))
+    .pipe(gulp.dest('dist/'))
+    .pipe(browserSync.reload({ stream: true }));
 }
 
 exports.css = css;
@@ -119,4 +119,4 @@ const watchapp = gulp.parallel(build, watchFiles, serve);
 
 exports.watchapp = watchapp;
 
- exports.default = watchapp;  //означает что команда wathapp вызывается вводом слова gulp
+exports.default = watchapp; //означает что команда wathapp вызывается вводом слова gulp
