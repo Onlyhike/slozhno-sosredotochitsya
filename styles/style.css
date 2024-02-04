@@ -2,7 +2,7 @@
 
 .page {
   padding: 0 10px;
-  /* margin: 0 auto; */
+  margin: 0 auto;
   background-image: var(--background-image);
   background-size: cover;
   background-repeat: no-repeat;
@@ -131,7 +131,6 @@
 .rec-elem {
   grid-column: 4 / 5;
   position: absolute;
-  visibility: hidden;
   text-transform: uppercase;
   line-height: 138.889%;
   color: var(--accent-color);
