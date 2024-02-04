@@ -44,11 +44,19 @@
   }
 
   .page.theme_auto .header__theme-menu-button_type_auto {
-    border: 1px solid var(--accent-color);
+    outline: 1px solid var(--accent-color);
+  }
+
+  .page.theme_auto .header__theme-menu-button:hover {
+    --hovered-color: #ff007050;
   }
 
   .page.theme_auto .rec-elem {
     visibility: visible;
+  }
+
+  .page.theme_auto .footer__heading {
+    --text-color: #db00ff;
   }
 }
 
@@ -65,7 +73,7 @@
 }
 
 .page.theme_dark .header__theme-menu-button_type_dark {
-  border: 1px solid var(--accent-color);
+  outline: 1px solid var(--accent-color);
 }
 
 .page.theme_dark .rec-elem {
@@ -96,9 +104,5 @@
 }
 
 .page.theme_dark .footer__heading {
-  --text-color: #db00ff;
-}
-
-.page.theme_auto .footer__heading {
   --text-color: #db00ff;
 }
