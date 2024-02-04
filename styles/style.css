@@ -207,11 +207,12 @@
 
 .header__theme-menu-button_active {
   pointer-events: none;
+  outline: 1px solid var(--text-color)
 }
 
-.page.theme_light .header__theme-menu-button_type_light {
+/* .page.theme_light .header__theme-menu-button_type_light {
   outline: 1px solid var(--text-color);
-}
+} */
 
 .header__theme-menu-button:hover {
   --hovered-color: #35343050;
