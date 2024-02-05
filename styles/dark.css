@@ -12,6 +12,7 @@
   --text-color: #f1b2ce;
   --accent-color: #ff0070;
   --background-image: url(../images/cover-image-dark.png);
+  --hover-outline-color: #ff007050;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,9 +21,10 @@
     --text-color: #f1b2ce;
     --accent-color: #ff0070;
     --background-image: url(../images/cover-image-dark.png);
+    --hover-outline-color: #ff007050;
   }
 
-  .page.theme_auto .title-decorated {
+  .page.theme_auto .title-decor {
     --text-color: #000028;
   }
 
@@ -30,8 +32,7 @@
     color: var(--accent-color);
   }
 
-  .page.theme_auto .header::before,
-  .page.theme_auto .header::after {
+  .page.theme_auto .decorated-zone {
     --text-color: #ff0070;
   }
 
@@ -47,9 +48,9 @@
     outline: 1px solid currentColor;
   }
 
-  .page.theme_auto .header__theme-menu-button:hover {
-    --hovered-color: #ff007050;
-  }
+  /* .page.theme_auto .header__theme-menu-button:hover {
+    --hover-outline-color: #ff007050;
+  } */
 
   .page.theme_auto .rec-elem {
     visibility: visible;
@@ -60,8 +61,8 @@
   }
 }
 
-.page.theme_dark .main__section > .main__section-heading {
-  color: var(--accent-color);
+.page.theme_dark .decorated-zone {
+  --text-color: #ff0070;
 }
 
 .page.theme_dark .header__theme-menu {
@@ -72,9 +73,9 @@
   --text-color: #ff0070;
 }
 
-.page.theme_dark .header__theme-menu-button:hover {
-  --hovered-color: #ff007050;
-}
+/* .page.theme_dark .header__theme-menu-button:hover {
+  --hover-outline-color: #ff007050;
+} */
 
 .page.theme_dark .header__theme-menu-button_active {
   outline: 1px solid currentColor;
@@ -84,12 +85,12 @@
   visibility: visible;
 }
 
-.page.theme_dark .header::before,
+/* .page.theme_dark .header::before,
 .page.theme_dark .header::after,
 .page.theme_dark .footer::before,
 .page.theme_dark .footer::after {
   --text-color: #ff0070;
-}
+} */
 
 .page.theme_dark .header__heading {
   --text-color: #db00ff;
@@ -99,7 +100,8 @@
   color: var(--accent-color);
 }
 
-.page.theme_dark .title-decorated {
+.page.theme_dark .header__description,
+.page.theme_dark .article__heading {
   --text-color: #000028;
 }
 

@@ -8,7 +8,7 @@
   background-position: center;
   background-attachment: fixed;
   color: var(--text-color);
-  font-family: 'IBM Plex mono', sans-serif;
+  font-family: var(--main-font);
   font-weight: 400;
   line-height: 130%;
 }
@@ -20,10 +20,35 @@
   }
 }
 
-.title-decorated {
-  background-color: var(--accent-color);
-  font-weight: 700;
+/* Перенёс общие стили для уголков в начало чтобы переиспользовать в футере с классом .decorated-zone, а ниже добавил правила расположения в гриде для уголков хедера */
+
+.decorated-zone::before {
+  display: block;
+  margin-inline-start: auto;
+  content: '';
   color: var(--text-color);
+  block-size: 25px;
+  inline-size: 25px;
+  border-inline-end: 1px solid var(--text-color);
+  border-block-start: 1px solid var(--text-color);
+}
+
+.decorated-zone::after {
+  margin-inline-end: auto;
+  display: block;
+  content: '';
+  block-size: 25px;
+  inline-size: 25px;
+  border-inline-start: 1px solid var(--text-color);
+  border-block-end: 1px solid var(--text-color);
+}
+
+.article {
+  grid-column: 2 / 4;
+}
+
+.title-decor {
+  background-color: var(--accent-color);
 }
 
 .line-break {
@@ -39,59 +64,53 @@
   border-block-end: 1px solid var(--text-color);
 }
 
+.link-active:focus {
+  outline: none;
+}
+
 .link-active:focus-visible {
   outline: 1px solid var(--text-color);
 }
 
-.header .title-decorated {
-  max-inline-size: clamp(22.1875rem, 21.6508rem + 2.2901vw, 22.75rem);
-  grid-row: 4 / 5;
-  grid-column: 1 / 5;
-  justify-self: self-end;
-  align-self: self-end;
-  block-size: fit-content;
+.article__heading {
+  margin: 20px 0 10px;
+  color: var(--text-color);
+}
+
+section:nth-of-type(3)
+  .article__heading:not(
+    .article:first-of-type > .article__heading:first-child
+  ) {
+  font-weight: 400;
 }
 
 @media (width >= 768px) {
 
-  .header .title-decorated {
-    max-inline-size: clamp(22.75rem, -1.0625rem + 49.6094vw, 30.6875rem);
-    grid-column: 3 / 5;
-    align-self: center;
+  .article:first-of-type .article__heading {
+    margin: 0 0 10px;
   }
-}
 
-@media (width >= 1024px) {
-
-  .header .title-decorated {
-    margin-block-start: 22px;
+  .section:nth-of-type(2) .article__heading {
+    margin: 20px 0 10px;
   }
-}
 
-.section__text-block .title-decorated {
-  margin: 20px 0 10px;
-}
-
-.section__text-block:nth-of-type(3)
-  .title-decorated:not(
-    .section__text-block:nth-of-type(3) .title-decorated:nth-of-type(2)
-  ) {
-  font-weight: 400;
+  .section:nth-of-type(3) .article__heading:nth-child(2) {
+    margin: 20px 0 10px;
+  }
 }
 
 .header {
   position: relative;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 2fr;
-  grid-template-rows: 1fr 3fr 3fr 3fr 1fr;
-  max-block-size: 100vh;
+  grid-template-rows: 1fr 5fr 5fr 5fr 1fr;
+  min-block-size: 100vh;
   padding: 10px 0;
 }
 
-@media (1024px > width >= 768px) {
+@media (width >= 768px) {
 
   .header {
-    min-block-size: 100vh;
     padding: 20px 0;
   }
 }
@@ -99,32 +118,18 @@
 @media (width >= 1024px) {
 
   .header {
-    max-block-size: 768px;
-    padding: 20px 0;
+    max-block-size: 100vh;
+    min-block-size: 768px;
   }
 }
 
-.header::before {
+.header.decorated-zone::before {
   grid-column: 4 / 5;
-  display: block;
-  margin-inline-start: auto;
-  content: '';
-  color: var(--text-color);
-  block-size: 25px;
-  inline-size: 25px;
-  border-inline-end: 1px solid var(--text-color);
-  border-block-start: 1px solid var(--text-color);
 }
 
-.header::after {
+.header.decorated-zone::after {
   grid-row: 5 / 6;
   align-self: flex-end;
-  display: block;
-  content: '';
-  block-size: 25px;
-  inline-size: 25px;
-  border-inline-start: 1px solid var(--text-color);
-  border-block-end: 1px solid var(--text-color);
 }
 
 .rec-elem {
@@ -149,24 +154,53 @@
   content: '';
   display: inline-block;
   vertical-align: bottom;
-  background-image: url(../images/Ellipse\ 4.svg);
+  background-image: url(../images/Ellipse4.svg); /*убрал из имени файла пробел*/
   background-size: cover;
   background-repeat: no-repeat;
   block-size: 25px;
   inline-size: 25px;
 }
 
+.header__description {
+  max-inline-size: clamp(22.1875rem, 21.6508rem + 2.2901vw, 22.75rem);
+  grid-row: 4 / 5;
+  grid-column: 1 / 5;
+  justify-self: self-end;
+  align-self: self-end;
+  block-size: fit-content;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-block-end: 19px;
+}
+
+@media (width >= 768px) {
+
+  .header__description {
+    max-inline-size: clamp(22.75rem, -1.0625rem + 49.6094vw, 30.6875rem);
+    grid-column: 3 / 5;
+    align-self: center;
+    margin-block-end: 37px;
+  }
+}
+
+@media (width >= 1024px) {
+
+  .header__description {
+    margin-block-start: 22px;
+  }
+}
+
 .header__theme-menu {
   grid-column: 4 / 5;
   justify-self: self-end;
-  padding-block-start: 8px;
+  align-self: center;
+  padding-block-end: 41px;
 }
 
 @media (width >=768px) {
 
   .header__theme-menu {
-    align-self: center;
-    padding-block-end: 18px;
+    padding: 35px 0 0;
   }
 }
 
@@ -183,7 +217,7 @@
 .header__theme-menu-list {
   display: flex;
   flex-direction: column;
-  gap: 13px;
+  gap: 12px;
 }
 
 @media (width >=1024px) {
@@ -209,14 +243,17 @@
   outline: 1px solid var(--text-color);
 }
 
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
 .header__theme-menu-button:focus-visible {
   outline: none;
   border-block-end: 1px solid var(--text-color);
 }
 
 .header__theme-menu-button:hover:not(.header__theme-menu-button_active) {
-  --hovered-color: #35343050;
-  outline: 1px solid var(--hovered-color);
+  outline: 1px solid var(--hover-outline-color);
 }
 
 .header__heading {
@@ -234,7 +271,7 @@
 
   .header__heading {
     align-self: center;
-    position: relative;
+    position: relative; /*Здесь так спозиционировано и применён сдвиг влево т.к. согласно макету у всей страницы (элемент body) заданы боковые отступы, и все элементы кроме загаловка H1(кроме разрешения 355х668рх) подчиняются этим отступам. Если сделать по вашей рекомендации, тогда придётся каждому элементу на странице кроме этого заголовка прописывать боковые отступы(и будет много лишних строчек кода), я использовал относительное позиционирование по аналогии с заданием "Карты подскажут", по моей памяти там именно так решается такая же задача со сдвигом. Если я не прав, поясните пожалуйста чем плохо использовать position:relative */
     left: -20px;
   }
 }
@@ -249,37 +286,34 @@
 @media (width >= 1024px) {
 
   .header__heading {
-    padding-block-end: 10px;
+    padding-block-end: 30px;
   }
 }
 
-.main__section {
+.main {
   padding-block-start: 40px;
 }
 
 @media (width >= 768px) {
 
-  .main__section {
+  .main {
     padding-block-start: 60px;
   }
 }
 
-@media (width >= 768px) {
-
-  .section__text-block:nth-of-type(3) .title-decorated:nth-of-type(3) {
-    margin-block-start: 10px;
-  }
-
-  .section__text-block
-    .title-decorated:nth-of-type(2):not(
-      .section__text-block:nth-of-type(2) .title-decorated:nth-of-type(2)
-    ) {
-    margin: 0 0 10px;
-  }
+.section {
+  padding-block-end: 50px;
 }
 
-.section__text-block {
-  padding-block-end: 50px;
+.section:nth-of-type(3) {
+  padding-block-end: 30px;
+}
+
+@media (width >= 768px) {
+
+  .section:nth-of-type(3) {
+    padding-block-end: 60px;
+  }
 }
 
 .gallery {
@@ -288,8 +322,18 @@
 
 @media (width >= 768px) {
 
-  .section__text-block {
+  .gallery__article .article__heading {
+    margin-block-end: 0;
+  }
+}
+
+@media (width >= 768px) {
+
+  .section {
     padding-block-end: 80px;
+    display: grid;
+    column-gap: 38px;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .gallery {
@@ -299,30 +343,21 @@
 
 @media (width >= 768px) {
 
-  .section__text-block {
-    display: grid;
-    column-gap: 38px;
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .accent-colored-heading {
+  .section__heading {
     grid-row: 1 / 4;
   }
+}
 
-  p,
-  .title-decorated {
-    grid-column: 2 / 4;
-  }
+@media (width >= 768px) {
 
-  .section__text-block:nth-of-type(2) .title-decorated,
-  .section__text-block:nth-of-type(2) p {
+  .section:nth-of-type(2) .article {
     grid-column: 1 / 4;
   }
 }
 
 @media (1024px > width >= 768px) {
 
-  .section__text-block:nth-of-type(3) {
+  .section:nth-of-type(3) {
     column-gap: 20px;
     grid-template-columns: 236px 1fr 1fr;
   }
@@ -330,23 +365,23 @@
 
 @media (width >= 1024px) {
 
-  .section__text-block {
+  .section {
     column-gap: 20px;
   }
 }
 
 @media (width >=1024px) {
 
-  .section__text-block:nth-of-type(2) .accent-colored-heading {
+  .section:nth-of-type(2) .section__heading {
     grid-row: 1 / 2;
   }
 
-  .section__text-block:nth-of-type(2) .title-decorated {
+  .section:nth-of-type(2) .article {
     grid-row: 2 / 3;
     grid-column: auto;
   }
 
-  .section__text-block:nth-of-type(2) p {
+  .section:nth-of-type(2) p {
     grid-row: 3 / 4;
     grid-column: auto;
   }
@@ -355,19 +390,18 @@
 .image {
   display: block;
   width: 100%;
-  padding-block-start: 10px;
 }
 
-@media (width >= 768px) {
+@media (width < 768px) {
 
-  .image {
-    padding: 0;
+  .image:not(.image:first-of-type) {
+    margin-block-start: 10px;
   }
 }
 
 @media (width >= 768px) {
 
-  .gallery {
+  .gallery__article {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
@@ -378,7 +412,7 @@
       'tape street street';
   }
 
-  .gallery .title-decorated {
+  .gallery .article__heading {
     grid-area: heading;
   }
 
@@ -423,13 +457,6 @@
 }
 
 .footer::before {
-  align-self: flex-end;
-  content: '';
-  color: var(--text-color);
-  block-size: 25px;
-  inline-size: 25px;
-  border-inline-end: 1px solid var(--text-color);
-  border-block-start: 1px solid var(--text-color);
   margin-block-start: 10px;
 }
 
@@ -441,12 +468,6 @@
 }
 
 .footer::after {
-  align-self: flex-start;
-  content: '';
-  block-size: 25px;
-  inline-size: 25px;
-  border-inline-start: 1px solid var(--text-color);
-  border-block-end: 1px solid var(--text-color);
   margin-block-end: 10px;
 }
 
