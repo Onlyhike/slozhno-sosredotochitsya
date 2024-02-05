@@ -77,7 +77,7 @@
 }
 
 .page.theme_dark .header__theme-menu-button_active {
-  outline: 1px solid var(--accent-color);
+  outline: 1px solid currentColor;
 }
 
 .page.theme_dark .rec-elem {
