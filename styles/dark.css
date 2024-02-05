@@ -44,7 +44,7 @@
   }
 
   .page.theme_auto .header__theme-menu-button_active {
-    outline: 1px solid var(--accent-color);
+    outline: 1px solid currentColor;
   }
 
   .page.theme_auto .header__theme-menu-button:hover {
@@ -68,12 +68,12 @@
   color: var(--accent-color);
 }
 
-.page.theme_dark .header__theme-menu-button:hover {
-  --hovered-color: #ff007050;
-}
-
 .page.theme_dark .header__theme-menu-button {
   --text-color: #ff0070;
+}
+
+.page.theme_dark .header__theme-menu-button:hover {
+  --hovered-color: #ff007050;
 }
 
 .page.theme_dark .header__theme-menu-button_active {
