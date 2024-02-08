@@ -4,7 +4,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  font-size: 18px;
+  font-size: var(--main-size);
 }
 
 body {

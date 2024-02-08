@@ -7,6 +7,12 @@
   --text-color: #353430;
   --accent-color: #ff8dcb;
   --background-image: url(../images/cover-image-light.png);
-  --main-font: 'IBM Plex mono', monospace;
   --hover-outline-color: #35343050;
+  --main-font: 'IBM Plex mono', monospace;
+  --bold: 700;
+  --normal: 400;
+  --min-height: 82.5%;
+  --mid-height: 100%;
+  --max-height: 130%;
+  --main-size: 18px;
 }
