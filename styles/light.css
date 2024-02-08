@@ -13,6 +13,7 @@
   --accent-color: #ff8dcb;
   --background-image: url(../images/cover-image-light.png);
   --hover-outline-color: #35343050;
+  --background-color: #fff1f7;
 }
 
 .page.theme_light .section__heading {
@@ -20,7 +21,6 @@
 }
 
 .page.theme_light .title-decor {
-  --text-color: #353430;
   color: var(--text-color);
 }
 
