@@ -11,30 +11,11 @@
   */
   --text-color: #353430;
   --accent-color: #ff8dcb;
+  --accented-text-color: #353430;
+  --main-heading-color: #ffc2e6;
+  --title-decor-color: #353430;
   --background-image: url(../images/cover-image-light.png);
   --hover-outline-color: #35343050;
   --background-color: #fff1f7;
-}
-
-.page.theme_light .section__heading {
-  color: var(--text-color);
-}
-
-.page.theme_light .title-decor {
-  color: var(--text-color);
-}
-
-.page.theme_light .rec-elem {
-  visibility: hidden;
-}
-
-.page.theme_light .decorated-zone::before,
-.page.theme_light .decorated-zone::after,
-.page.theme_light .header__theme-menu {
-  --text-color: #353430;
-}
-
-.page.theme_light .header__heading,
-.page.theme_light .footer__heading {
-  --text-color: #ffc2e6;
+  --visibility: hidden;
 }

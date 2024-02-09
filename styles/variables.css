@@ -6,6 +6,10 @@
 :root {
   --text-color: #353430;
   --accent-color: #ff8dcb;
+  --accented-text-color: #353430;
+  --main-heading-color: #ffc2e6;
+  --main-heading-other-shadow-color: #ff0070;
+  --title-decor-color: #353430;
   --background-image: url(../images/cover-image-light.png);
   --background-color: #fff1f7;
   --hover-outline-color: #35343050;
@@ -16,4 +20,5 @@
   --mid-height: 100%;
   --max-height: 130%;
   --main-size: 18px;
+  --visibility: hidden;
 }
